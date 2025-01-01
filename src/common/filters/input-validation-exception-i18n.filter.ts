@@ -13,15 +13,14 @@ export class InputValidationExceptionI18nFilter implements GqlExceptionFilter {
     Log({
       message: `i18n lang = ${i18n.lang}`,
       info: true,
-      exceptProduction: true
-    })
+      exceptProduction: true,
+    });
     const { errors } = exception;
     errors.map((error, i) => {
-
       Log({
         message: ['VALIDATION ' + (i + 1), error],
-        exceptProduction: true
-      })
+        exceptProduction: true,
+      });
 
       error.messages = error.messages.map((e) => {
         const str = e.split('|');

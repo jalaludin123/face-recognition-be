@@ -14,21 +14,23 @@ import { Log } from './common/utils/log';
 import { APP_FILTER } from '@nestjs/core';
 import { GlobalValidationExceptionI18nFilter } from './common/filters/global-validation-exception-i18n.filter';
 import { graphqlUploadExpress } from 'graphql-upload';
+import { UserModule } from './modules/user/user.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
       serveStaticOptions: {
-        fallthrough: true
-      }
+        fallthrough: true,
+      },
     }),
     ConfigModule.forRoot({
       ignoreEnvFile: !!process.env.CI,
       envFilePath: join(__dirname, '..', '.env'),
       validationSchema: envSchema,
       isGlobal: true,
-      load: [jwtConfig]
+      load: [jwtConfig],
     }),
     I18nModule.forRoot({
       fallbackLanguage: process.env.LANG_I18N || 'en',
@@ -85,6 +87,8 @@ import { graphqlUploadExpress } from 'graphql-upload';
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,
     }),
+    UserModule,
+    AuthModule,
   ],
   providers: [
     {
