@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { faker } from '@faker-js/faker';
 type defaultType = {
   tablename: string;
@@ -121,7 +120,7 @@ export const dataToDeleteQuery = (tablename: string, where?: string) => {
 export const filterGqlToWhereSql = (
   data: Record<string, any>,
   alias: string = null,
-  isOr = false,
+  isOr = false
 ) => {
   let res = '';
 

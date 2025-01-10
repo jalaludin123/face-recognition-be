@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Field, ObjectType } from '@nestjs/graphql';
 import { ErrorResponse } from '../interfaces/error-response.interface';
 

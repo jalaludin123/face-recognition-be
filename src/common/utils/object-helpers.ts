@@ -1,6 +1,3 @@
-/* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prettier/prettier */
 import { randomInt } from 'crypto';
 import { getRandomInt } from './number-helpers';
 
@@ -22,7 +19,7 @@ export const groupData = (data: any[], key?: string | string[]) => {
           ? e[key] == dt[key]
           : Array.isArray(key)
             ? key.reduce((prev, k) => (!prev ? prev : e[k] == dt[k]), true)
-            : e == dt,
+            : e == dt
       )
     )
       res = [...res, dt];
@@ -58,7 +55,7 @@ export const objDeepEqual = (obj1: unknown, obj2: unknown): boolean => {
 
 export const replaceNestedKeys = (
   object: Record<string, any> | any[],
-  keys: { key: string; value: any }[],
+  keys: { key: string; value: any }[]
 ): Record<string, any> | any[] => {
   keys.forEach((dt) => {
     const keyArr = dt.key.split('.');
@@ -75,7 +72,7 @@ export const replaceNestedKeys = (
 
 export const omitObject: (
   obj: Record<string, any>,
-  strs?: string[],
+  strs?: string[]
 ) => Record<string, any> = (obj, strs = []) => {
   if (!strs.length || !Object.keys(obj).length) {
     return obj;
@@ -126,7 +123,7 @@ export const sortObjectKeys = (obj: any): any => {
           ...result,
           [key]: sortObjectKeys(obj[key]),
         }),
-        {},
+        {}
       );
   }
 
@@ -181,7 +178,7 @@ export const randomEnumMultiple = (e: any, limit = 2): string[] => {
 
 export const getNestedPropertyValue = (
   obj: Record<string, any>,
-  propertyPath: string,
+  propertyPath: string
 ): any => {
   const properties = propertyPath.split('.');
   let value = obj;

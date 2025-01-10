@@ -58,7 +58,7 @@ import { AuthModule } from './modules/auth/auth.module';
           context: ({ req, res }) => ({ req, res }),
           sortSchema: true,
           debug: !['production', 'test'].includes(
-            config.get<string>('NODE_ENV'),
+            config.get<string>('NODE_ENV')
           ) as boolean,
           uploads: false,
           buildSchemaOptions: {
@@ -104,7 +104,7 @@ export class AppModule implements NestModule {
         graphqlUploadExpress({
           maxFileSize: 10 * 1024 * 1024,
           maxFiles: 10,
-        }),
+        })
       )
       .forRoutes('graphql');
   }

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {
   Injectable,
   NestInterceptor,
@@ -14,7 +13,7 @@ const SetTimeout = (timeout: number) => SetMetadata('request-timeout', timeout);
 export function SetRequestTimeout(timeout: number = 60000) {
   return applyDecorators(
     SetTimeout(timeout),
-    UseInterceptors(TimeoutInterceptor),
+    UseInterceptors(TimeoutInterceptor)
   );
 }
 

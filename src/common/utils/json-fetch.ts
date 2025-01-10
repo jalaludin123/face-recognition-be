@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import fetch from 'node-fetch';
 import { Log } from './log';
 
@@ -19,7 +18,7 @@ export async function jsonFetch<R = any>(
   method: string,
   body: object | string,
   headers = {},
-  options: JSONFetchOptions = {},
+  options: JSONFetchOptions = {}
 ): Promise<[R?, JSONFetchErr?]> {
   const sendData = typeof body === 'string' ? body : JSON.stringify(body);
 

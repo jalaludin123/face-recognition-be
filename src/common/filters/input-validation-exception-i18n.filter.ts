@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ArgumentsHost, Catch } from '@nestjs/common';
 import { GqlExceptionFilter } from '@nestjs/graphql';
 import { InputValidationException } from '../exceptions/input-validation.exception';

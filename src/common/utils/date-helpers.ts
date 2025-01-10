@@ -81,14 +81,14 @@ export const formatDate = ({ date = null, lang = 'en-GB' }) => {
 
 export const getDates = (
   endDate: string | Date,
-  startDate?: string | Date,
+  startDate?: string | Date
 ): Date[] => {
   let dateArray = new Array();
   let currentDate = !startDate
     ? new Date()
     : typeof startDate == 'string'
-    ? new Date(startDate)
-    : (startDate as Date);
+      ? new Date(startDate)
+      : (startDate as Date);
   const targetDate = typeof endDate == 'string' ? new Date(endDate) : endDate;
 
   while (currentDate <= targetDate) {
@@ -102,8 +102,8 @@ const addDays = (dateValue?: string | Date, days = 1): Date => {
   const date = !dateValue
     ? new Date()
     : dateValue == 'string'
-    ? new Date(dateValue)
-    : (dateValue as Date);
+      ? new Date(dateValue)
+      : (dateValue as Date);
   date.setDate(date.getDate() + days);
   return date;
 };
@@ -132,26 +132,26 @@ export const sortDateArray = (props: {
     .map((e) =>
       typeof e == 'object'
         ? { ...e, [column]: new Date(e[column]) }
-        : new Date(e),
+        : new Date(e)
     )
     .sort(funcOpts[sort]);
 };
 
 export const getWeekendDays = (
   endDate: string | Date,
-  startDate?: string | Date,
+  startDate?: string | Date
 ): { date: Date; desc: string }[] => {
   let dateArray = new Array();
   let currentDate = !startDate
     ? new Date()
     : typeof startDate == 'string'
-    ? new Date(startDate)
-    : (startDate as Date);
+      ? new Date(startDate)
+      : (startDate as Date);
   const targetDate =
     typeof endDate == 'string' ? new Date(endDate) : (endDate as Date);
 
   while (currentDate <= targetDate) {
-    var day = currentDate.getDay();
+    const day = currentDate.getDay();
     if (day === 6 || day === 0)
       dateArray.push({
         date: currentDate,

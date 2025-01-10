@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export function getRandomInt(min: number, max: number) {
   min = Math.ceil(min);
   max = Math.floor(max);

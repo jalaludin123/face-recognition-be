@@ -14,7 +14,7 @@ export const GqlUser = createParamDecorator(
 
       const userToken = jwt.verify(
         (token ?? '').replace('Bearer', 'bearer').split('bearer ').at(-1),
-        process.env.JWT_SECRET,
+        process.env.JWT_SECRET
       ) as JwtPayload;
 
       const { sub = null } = userToken ?? {};
@@ -25,5 +25,5 @@ export const GqlUser = createParamDecorator(
     }
 
     return data ? user && user[data] : user;
-  },
+  }
 );

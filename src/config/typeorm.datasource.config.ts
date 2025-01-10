@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 require('dotenv').config({ path: '.env' });
