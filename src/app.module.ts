@@ -14,8 +14,10 @@ import { Log } from './common/utils/log';
 import { APP_FILTER } from '@nestjs/core';
 import { GlobalValidationExceptionI18nFilter } from './common/filters/global-validation-exception-i18n.filter';
 import { graphqlUploadExpress } from 'graphql-upload';
-import { UserModule } from './modules/user/user.module';
+import { UserModule } from './modules/master/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { RoleModule } from './modules/master/role/role.module';
+import { AttendanceModule } from './modules/attendance/attendance.module';
 
 @Module({
   imports: [
@@ -24,6 +26,7 @@ import { AuthModule } from './modules/auth/auth.module';
       serveStaticOptions: {
         fallthrough: true,
       },
+      exclude: ['/graphql', '/sync'],
     }),
     ConfigModule.forRoot({
       ignoreEnvFile: !!process.env.CI,
@@ -89,6 +92,8 @@ import { AuthModule } from './modules/auth/auth.module';
     }),
     UserModule,
     AuthModule,
+    RoleModule,
+    AttendanceModule,
   ],
   providers: [
     {

@@ -1,0 +1,21 @@
+{
+  "NOT_EMPTY": "{property} tidak boleh kosong",
+  "INVALID": "{property} tidak valid",
+  "INVALID_EMAIL": "email tidak valid",
+  "INVALID_STRING": "{property} bukan string",
+  "INVALID_INT": "{property} bukan bilangan bulat",
+  "INVALID_FLOAT": "{property} bukan bilangan ",
+  "INVALID_BOOLEAN": "{property} bukan boolean",
+  "SET_MAX_DECIMAL": "{property} memiliki batas desimal {constraints.0.maxDecimalPlaces}",
+  "INVALID_ARRAY": "{property} bukan array",
+  "INVALID_TIME": "{property} tidak valid (contoh: 14:50:00)",
+  "MIN": "{property} with value: \"{value}\" needs to be at least {constraints.0}, ow and {message}",
+  "MAX": "{property} with value: \"{value}\" needs to be less than {constraints.0}, ow and {message}",
+  "MIN_LENGTH": "{property} harus lebih panjang dari atau sama dengan \"{constraints.0}\" karakter",
+  "MAX_LENGTH": "{property} harus lebih pendek dari atau sama dengan \"{constraints.0}\" karakter",
+  "INVALID_DATE": "harus menggunakan format tanggal (Y-m-d)",
+  "NUMBER": "{property} harus berupa angka",
+  "NOT_REGISTERED": "{property} tidak terdaftar",
+  "SOME_ARE_NOT_LISTED": "beberapa {property} tidak terdaftar",
+  "SIGN_SUCCESS": "Berhasil Memperbaharui Signature"
+}

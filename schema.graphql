@@ -1,0 +1,461 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthUserResponse {
+  token: String!
+  user: userSync!
+}
+
+input CreateManyRoleSyncsInput {
+  """Array of records to create"""
+  roleSyncs: [RoleSync!]!
+}
+
+input CreateManyUserSyncsInput {
+  """Array of records to create"""
+  userSyncs: [CreateUserSync!]!
+}
+
+input CreateOneRoleSyncInput {
+  """The record to create"""
+  roleSync: RoleSync!
+}
+
+input CreateOneUserSyncInput {
+  """The record to create"""
+  userSync: CreateUserSync!
+}
+
+input CreateUserSync {
+  email: String
+  id: ID
+  isActive: Boolean
+  name: String
+  password: String
+  role_id: String
+  username: String
+}
+
+type DeleteManyResponse {
+  """The number of records deleted."""
+  deletedCount: Int!
+}
+
+input DeleteManyRoleSyncsInput {
+  """Filter to find records to delete"""
+  filter: roleSyncDeleteFilter!
+}
+
+input DeleteManyUserSyncsInput {
+  """Filter to find records to delete"""
+  filter: userSyncDeleteFilter!
+}
+
+input DeleteOneRoleSyncInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteOneUserSyncInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+type Error implements ErrorResponse {
+  message: String!
+}
+
+interface ErrorResponse {
+  message: String!
+}
+
+input IDFilterComparison {
+  eq: ID
+  gt: ID
+  gte: ID
+  iLike: ID
+  in: [ID!]
+  is: Boolean
+  isNot: Boolean
+  like: ID
+  lt: ID
+  lte: ID
+  neq: ID
+  notILike: ID
+  notIn: [ID!]
+  notLike: ID
+}
+
+type InputError {
+  field: String!
+  messages: [String!]!
+}
+
+type InvalidInputError implements ErrorResponse {
+  errors: [InputError!]!
+  message: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+union LoginUserResult = AuthUserResponse | Error
+
+type Mutation {
+  createManyRoleSyncs(input: CreateManyRoleSyncsInput!): [roleSync!]!
+  createManyUserSyncs(input: CreateManyUserSyncsInput!): [userSync!]!
+  createOneRoleSync(input: CreateOneRoleSyncInput!): roleSync!
+  createOneUserSync(input: CreateOneUserSyncInput!): userSync!
+  deleteManyRoleSyncs(input: DeleteManyRoleSyncsInput!): DeleteManyResponse!
+  deleteManyUserSyncs(input: DeleteManyUserSyncsInput!): DeleteManyResponse!
+  deleteOneRoleSync(input: DeleteOneRoleSyncInput!): RoleSyncDeleteResponse!
+  deleteOneUserSync(input: DeleteOneUserSyncInput!): UserSyncDeleteResponse!
+  login(input: LoginInput!): [LoginUserResult!]!
+  register(input: RegisterInput!): [RegisterUserResult!]!
+  updateManyRoleSyncs(input: UpdateManyRoleSyncsInput!): UpdateManyResponse!
+  updateManyUserSyncs(input: UpdateManyUserSyncsInput!): UpdateManyResponse!
+  updateOneRoleSync(input: UpdateOneRoleSyncInput!): roleSync!
+  updateOneUserSync(input: UpdateOneUserSyncInput!): userSync!
+}
+
+type OffsetPageInfo {
+  """true if paging forward and there are more records."""
+  hasNextPage: Boolean
+
+  """true if paging backwards and there are more records."""
+  hasPreviousPage: Boolean
+}
+
+input OffsetPaging {
+  """Limit the number of records returned"""
+  limit: Int
+
+  """Offset to start returning records from"""
+  offset: Int
+}
+
+type Query {
+  role(
+    """The id of the record to find."""
+    id: ID!
+  ): roleSync
+  roles(
+    """Specify to filter the records returned."""
+    filter: roleSyncFilter! = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging! = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [roleSyncSort!]! = []
+  ): RoleSyncConnection!
+  user(
+    """The id of the record to find."""
+    id: ID!
+  ): userSync
+  users(
+    """Specify to filter the records returned."""
+    filter: userSyncFilter! = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging! = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [userSyncSort!]! = []
+  ): UserSyncConnection!
+}
+
+input RegisterInput {
+  email: String!
+  name: String!
+  password: String!
+  username: String
+}
+
+union RegisterUserResult = Error | InvalidInputError | Success
+
+input RoleSync {
+  desc: String
+  name: String!
+}
+
+type RoleSyncConnection {
+  """Array of nodes."""
+  nodes: [roleSync!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type RoleSyncDeleteResponse {
+  desc: String
+  id: ID
+  name: String
+}
+
+"""Sort Directions"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""Sort Nulls Options"""
+enum SortNulls {
+  NULLS_FIRST
+  NULLS_LAST
+}
+
+input StringFieldComparison {
+  eq: String
+  gt: String
+  gte: String
+  iLike: String
+  in: [String!]
+  is: Boolean
+  isNot: Boolean
+  like: String
+  lt: String
+  lte: String
+  neq: String
+  notILike: String
+  notIn: [String!]
+  notLike: String
+}
+
+type Success implements SuccessResponse {
+  message: String!
+}
+
+interface SuccessResponse {
+  message: String!
+}
+
+type UpdateManyResponse {
+  """The number of records updated."""
+  updatedCount: Int!
+}
+
+input UpdateManyRoleSyncsInput {
+  """Filter used to find fields to update"""
+  filter: roleSyncUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: RoleSync!
+}
+
+input UpdateManyUserSyncsInput {
+  """Filter used to find fields to update"""
+  filter: userSyncUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdateUserSync!
+}
+
+input UpdateOneRoleSyncInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: RoleSync!
+}
+
+input UpdateOneUserSyncInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateUserSync!
+}
+
+input UpdateUserSync {
+  email: String
+  id: ID
+  isActive: Boolean
+  name: String
+  password: String
+  role_id: String
+  username: String
+}
+
+type UserSyncConnection {
+  """Array of nodes."""
+  nodes: [userSync!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+}
+
+type UserSyncDeleteResponse {
+  email: String
+  id: ID
+  isActive: Boolean
+  name: String
+  password: String
+  role_id: String
+  username: String
+}
+
+type roleSync {
+  desc: String
+  id: ID!
+  name: String!
+}
+
+type roleSyncAggregateGroupBy {
+  id: ID
+  name: String
+}
+
+type roleSyncCountAggregate {
+  id: Int
+  name: Int
+}
+
+input roleSyncDeleteFilter {
+  and: [roleSyncDeleteFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  or: [roleSyncDeleteFilter!]
+}
+
+input roleSyncFilter {
+  and: [roleSyncFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  or: [roleSyncFilter!]
+}
+
+type roleSyncMaxAggregate {
+  id: ID
+  name: String
+}
+
+type roleSyncMinAggregate {
+  id: ID
+  name: String
+}
+
+input roleSyncSort {
+  direction: SortDirection!
+  field: roleSyncSortFields!
+  nulls: SortNulls
+}
+
+enum roleSyncSortFields {
+  id
+  name
+}
+
+input roleSyncUpdateFilter {
+  and: [roleSyncUpdateFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  or: [roleSyncUpdateFilter!]
+}
+
+type userSync {
+  email: String!
+  id: ID!
+  isActive: Boolean!
+  name: String!
+  password: String!
+  role_id: String
+  roles(
+    """Specify to filter the records returned."""
+    filter: roleSyncFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [roleSyncSort!]! = []
+  ): [roleSync!]
+  username: String!
+}
+
+type userSyncAggregateGroupBy {
+  email: String
+  id: ID
+  name: String
+  role_id: String
+  username: String
+}
+
+type userSyncCountAggregate {
+  email: Int
+  id: Int
+  name: Int
+  role_id: Int
+  username: Int
+}
+
+input userSyncDeleteFilter {
+  and: [userSyncDeleteFilter!]
+  email: StringFieldComparison
+  id: IDFilterComparison
+  name: StringFieldComparison
+  or: [userSyncDeleteFilter!]
+  role_id: StringFieldComparison
+  username: StringFieldComparison
+}
+
+input userSyncFilter {
+  and: [userSyncFilter!]
+  email: StringFieldComparison
+  id: IDFilterComparison
+  name: StringFieldComparison
+  or: [userSyncFilter!]
+  role: userSyncFilterroleSyncFilter
+  role_id: StringFieldComparison
+  username: StringFieldComparison
+}
+
+input userSyncFilterroleSyncFilter {
+  and: [userSyncFilterroleSyncFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  or: [userSyncFilterroleSyncFilter!]
+}
+
+type userSyncMaxAggregate {
+  email: String
+  id: ID
+  name: String
+  role_id: String
+  username: String
+}
+
+type userSyncMinAggregate {
+  email: String
+  id: ID
+  name: String
+  role_id: String
+  username: String
+}
+
+input userSyncSort {
+  direction: SortDirection!
+  field: userSyncSortFields!
+  nulls: SortNulls
+}
+
+enum userSyncSortFields {
+  email
+  id
+  name
+  role_id
+  username
+}
+
+input userSyncUpdateFilter {
+  and: [userSyncUpdateFilter!]
+  email: StringFieldComparison
+  id: IDFilterComparison
+  name: StringFieldComparison
+  or: [userSyncUpdateFilter!]
+  role_id: StringFieldComparison
+  username: StringFieldComparison
+}

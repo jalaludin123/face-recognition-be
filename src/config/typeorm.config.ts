@@ -63,7 +63,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
         },
         slaves,
       },
-      synchronize: false,
+      synchronize: true,
       logging: true, //this.isDebug
       entities: getMetadataArgsStorage().tables.map((t) => t.target),
       migrations: ['dist/migrations/*{.ts,.js}'],

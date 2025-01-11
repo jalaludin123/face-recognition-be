@@ -1,0 +1,20 @@
+{
+  "NOT_EMPTY": "{property} cannot be empty",
+  "INVALID": "{property} is invalid",
+  "INVALID_EMAIL": "email is invalid",
+  "INVALID_STRING": "{property} is not a string",
+  "INVALID_BOOLEAN": "{property} is not a boolean",
+  "INVALID_INT": "{property} is not a integers",
+  "SET_MAX_DECIMAL": "{property} have maximum decimal places {constraints.0.maxDecimalPlaces}",
+  "INVALID_ARRAY": "{property} is not a array",
+  "INVALID_TIME": "{property} is not a valid (ex: 14:50:00)",
+  "MIN": "{property} with value: \"{value}\" needs to be at least {constraints.0}, ow and {message}",
+  "MAX": "{property} with value: \"{value}\" needs to be less than {constraints.0}, ow and {message}",
+  "MIN_LENGTH": "{property} must be longer than or equal to \"{constraints.0}\" characters",
+  "MAX_LENGTH": "{property} must be shorter than or equal to \"{constraints.0}\" characters",
+  "INVALID_DATE": "must be a valid ISO 8601 date string (Y-m-d)",
+  "NUMBER": "{property} must be a number string",
+  "NOT_REGISTERED": "{property} is not exist or has been inactivated",
+  "SOME_ARE_NOT_LISTED": "some {property} are not exist or has been inactivated",
+  "SIGN_SUCCESS": "Success Update Signature"
+}
